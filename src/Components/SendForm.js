@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Input from './Input/Input';
 
 const Button = styled.button`
     margin-top: 2rem;
@@ -81,35 +82,31 @@ class SendForm extends Component {
                 },
             }
         };
-        
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    handleInputChange(event, key) {
-        const {target: {value}} = event;
+    handleInputChange(key) {
+        return(event) => {
+            const {target: {value}} = event;
 
-        this.setState((prevState) => {
-            return{
-                formData: {
-                    ...prevState.formData,
-                    [key]: {
-                        ...prevState.formData[key],
-                        value,
+            this.setState((prevState) => {
+                return{
+                    formData: {
+                        ...prevState.formData,
+                        [key]: {
+                            ...prevState.formData[key],
+                            value,
+                        }
                     }
-                }
-            }
-        });
+                };
+            });
+        };
     }
 
     onFormSubmit = event => {
         event.preventDefault();
         const quote = {
-            userName: this.state.name,
-            userPhone: this.state.phone,
-            userEmail: this.state.email,
-            userAddress: this.state.address,
-            userBudget: this.state.budget,
-            userHouseType: this.state.houseType,
-            userDetails: this.state.details
+            everything: this.state.formData
         }
 
         console.log(quote);
@@ -128,59 +125,40 @@ class SendForm extends Component {
                         if (key !== "houseType" && key !== "details"){
                             return(                           
                                 <label key={key}>{label}
-                                <input 
+                                <Input 
                                     key={key}
                                     placeholder={label} 
                                     value={value}
-                                    onChange={(event) => this.handleInputChange(event, key)}
+                                    onChange={this.handleInputChange(key)}
                                 />
                                 </label>
                             )  
-                        }
-                                              
-                    })}        
-                    {/* <label>First Name
-                    <input 
-                        onChange={(event) => this.handleInputChange(event, 'name')}
-                        placeholder="Please Enter Your Name" type="text" value={this.state.name} autoComplete="off" />
-                    </label>
-                    <label>Phone Number
-                    <input 
-                        onChange={(event) => this.handleInputChange(event, 'phone')}
-                        placeholder="Please Enter Your Phone Number" value={this.state.phone} autoComplete="off" />
-                    </label>
-                    <label>Email Address
-                    <input 
-                        onChange={(event) => this.handleInputChange(event, 'email')}
-                        placeholder="Please Enter your Email Address" value={this.state.email} type="email" />
-                    </label>
-                    <label>Project Address
-                    <input 
-                        onChange={(event) => this.handleInputChange(event, 'address')}
-                        placeholder="Please Enter your desired Project Address" value={this.state.address} type="text" />
-                    </label>
-                    <label>Budget
-                    <input 
-                        onChange={(event) => this.handleInputChange(event, 'budget')}
-                        placeholder="Please Enter your Budget" value={this.state.budget} />                    
-                    </label> */}
-                    <label>Looking to build a:                         
-                        <select onChange={(event) => this.handleInputChange(event, 'houseType')} value={this.state.houseType} className="browser-default" >
-                            <option value="" defaultValue>Choose Your Option</option>
-                            <option value="Town House">Town House</option>    
-                            <option value="House">House</option>
-                            <option value="Apartment">Apartment</option>
-                        </select>      
-                    </label>         
-                    <label>Tell us more
-                        <textarea value={this.state.details} 
-                            onChange={(event) => this.handleInputChange(event, 'details')}
-                            placeholder="Tell us more about the details of the project you want to build" 
-                            cols="30"
-                            rows="10"
-                            style={{outline:'none', resize:'none', height:'8rem'}}
-                        />
-                    </label>
+                        } 
+                        if (key === "houseType") {
+                            return(
+                                <label key={key}>{label}
+                                    <select onChange={this.handleInputChange(key)} value={value} className="browser-default" >
+                                        <option value="" defaultValue>Choose Your Option</option>
+                                        <option value="Town House">Town House</option>    
+                                        <option value="House">House</option>
+                                        <option value="Apartment">Apartment</option>
+                                    </select>     
+                                </label>
+                            )
+                        } else {
+                            return(
+                                <label key={key}>{label}
+                                    <textarea value={value} 
+                                        onChange={this.handleInputChange(key)}
+                                        placeholder="Tell us more about the details of the project you want to build" 
+                                        cols="30"
+                                        rows="10"
+                                        style={{outline:'none', resize:'none', height:'8rem'}}
+                                    />
+                                </label>
+                            )
+                        }                                       
+                    })}                                                
                     <Button className="btn waves-effect waves-light" type="submit">Submit
                         <i className="material-icons right">send</i>
                     </Button>
