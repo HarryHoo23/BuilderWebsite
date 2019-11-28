@@ -29,7 +29,7 @@ class SendForm extends Component {
                     label: 'Name',
                     validation: {
                         validator:'isNotEmpty',
-                        message: 'Please input Your Name'
+                        message: 'Please Enter Your Name'
                     }
                 },
                 phone : {
@@ -37,7 +37,7 @@ class SendForm extends Component {
                     label: 'Phone Number',
                     validation: {
                         validator:'isNotEmpty',
-                        message: 'Please input Your Phone Number'
+                        message: 'Please Enter Your Phone Number'
                     }
                 },
                 email : {
@@ -45,7 +45,7 @@ class SendForm extends Component {
                     label: 'Email Address',
                     validation: {
                         validator:'isNotEmpty',
-                        message: 'Please input Your Name'
+                        message: 'Please Enter Your Email Address'
                     }
                 },
                 address : {
@@ -53,7 +53,7 @@ class SendForm extends Component {
                     label: 'Project Address',
                     validation: {
                         validator:'isNotEmpty',
-                        message: 'Please input Your Name'
+                        message: 'Please Enter Project Address'
                     }
                 },
                 budget : {
@@ -61,7 +61,7 @@ class SendForm extends Component {
                     label: 'Enter Your Budget',
                     validation: {
                         validator:'isNotEmpty',
-                        message: 'Please input Your Budget'
+                        message: 'Please Enter Your Budget'
                     }
                 },
                 houseType : {
@@ -121,7 +121,7 @@ class SendForm extends Component {
                 </div>    
                 <form className="col s12" onSubmit={this.onFormSubmit}>            
                     {Object.keys(formData).map((key) => {
-                        const {label, value} = formData[key];
+                        const {label, value, validation} = formData[key];
                         if (key !== "houseType" && key !== "details"){
                             return(                           
                                 <label key={key}>{label}
@@ -129,6 +129,7 @@ class SendForm extends Component {
                                     key={key}
                                     placeholder={label} 
                                     value={value}
+                                    validation={validation}
                                     onChange={this.handleInputChange(key)}
                                 />
                                 </label>
