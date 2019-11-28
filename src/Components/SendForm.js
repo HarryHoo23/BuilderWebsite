@@ -27,58 +27,61 @@ class SendForm extends Component {
                 name : {
                     value: '',
                     label: 'Name',
-                    validation: {
+                    validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Your Name'
-                    }
+                    }],
                 },
                 phone : {
                     value: '',
                     label: 'Phone Number',
-                    validation: {
+                    validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Your Phone Number'
-                    }
+                    }],
                 },
                 email : {
                     value: '',
                     label: 'Email Address',
-                    validation: {
+                    validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Your Email Address'
-                    }
+                    }, {
+                        validator: 'isEmail',
+                        message: 'Please Enter a valid Email Address',
+                    }],
                 },
                 address : {
                     value: '',
                     label: 'Project Address',
-                    validation: {
+                    validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Project Address'
-                    }
+                    }],
                 },
                 budget : {
                     value: '',
                     label: 'Enter Your Budget',
-                    validation: {
+                    validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Your Budget'
-                    }
+                    }],
                 },
                 houseType : {
                     value: '',
                     label: 'Choose the House Type',
-                    validation: {
+                    validations: [{
                         validator:'isNotEmpty',
                         message: 'Please choose the house Type you prefer'
-                    }
+                    }],
                 },
                 details : {
                     value: '',
                     label: 'Please tell us more about the project Details',
-                    validation: {
+                    validations: [{
                         validator:'isNotEmpty',
                         message: 'Please input the details of your Projects'
-                    }
+                    }],
                 },
             }
         };
@@ -106,9 +109,14 @@ class SendForm extends Component {
     onFormSubmit = event => {
         event.preventDefault();
         const quote = {
-            everything: this.state.formData
+            clientName: this.state.formData.name,
+            clientPhoneNumber: this.state.formData.phone,
+            clientEmail: this.state.formData.email,
+            clientProjectAddress: this.state.formData.address,
+            clientBudget: this.state.formData.budget,
+            clientHouseType: this.state.formData.houseType,
+            clientDeatilsAboutProject: this.state.formData.details,
         }
-
         console.log(quote);
     }
     
@@ -121,7 +129,7 @@ class SendForm extends Component {
                 </div>    
                 <form className="col s12" onSubmit={this.onFormSubmit}>            
                     {Object.keys(formData).map((key) => {
-                        const {label, value, validation} = formData[key];
+                        const {label, value, validations} = formData[key];
                         if (key !== "houseType" && key !== "details"){
                             return(                           
                                 <label key={key}>{label}
@@ -129,7 +137,7 @@ class SendForm extends Component {
                                     key={key}
                                     placeholder={label} 
                                     value={value}
-                                    validation={validation}
+                                    validations={validations}
                                     onChange={this.handleInputChange(key)}
                                 />
                                 </label>
