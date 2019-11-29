@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Input from './Input/Input';
+import emailjs from 'emailjs-com';
 
 const Button = styled.button`
     margin-top: 2rem;
@@ -11,9 +12,7 @@ const Button = styled.button`
 `
 
 const Layout = styled.div`
-    width: 50%;
-    margin: 3rem;
-    padding: 2rem 2rem 4rem 2rem;
+    margin: 2rem 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     border-radius: 15px;
 `
@@ -27,6 +26,7 @@ class SendForm extends Component {
                 name : {
                     value: '',
                     label: 'Name',
+                    icon: 'mode_edit', 
                     validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Your Name'
@@ -109,25 +109,34 @@ class SendForm extends Component {
     onFormSubmit = event => {
         event.preventDefault();
         const quote = {
-            clientName: this.state.formData.name,
-            clientPhoneNumber: this.state.formData.phone,
-            clientEmail: this.state.formData.email,
-            clientProjectAddress: this.state.formData.address,
-            clientBudget: this.state.formData.budget,
-            clientHouseType: this.state.formData.houseType,
-            clientDeatilsAboutProject: this.state.formData.details,
+            clientName: this.state.formData.name.value,
+            clientPhoneNumber: this.state.formData.phone.value,
+            clientEmail: this.state.formData.email.value,
+            clientProjectAddress: this.state.formData.address.value,
+            clientBudget: this.state.formData.budget.value,
+            clientHouseType: this.state.formData.houseType.value,
+            clientDeatilsAboutProject: this.state.formData.details.value,
         }
+
+        // emailjs.sendForm("hoozh1123_gmail_com", "template_rn0wlcdT", templateParams, "user_yUW74rtEDmz3gmHu9aBnl")
+        //     .then((res) => {
+        //         console.log(res.text);
+        //     }, (err) => {
+        //         console.log(err.text);
+        //     })
+
         console.log(quote);
+
     }
     
     render() {
         const { formData } = this.state;
         return(
-            <Layout> 
+            <Layout className="col s12 m12 l7" style={{padding:'2rem'}}> 
                 <div style={{width:'100%', textAlign:'center', marginBottom:'2rem'}}>                
-                    <h5 style={{display:'inline-block'}}>Contact Us</h5>
+                    <h5 style={{display:'inline-block'}}>Send Message</h5>
                 </div>    
-                <form className="col s12" onSubmit={this.onFormSubmit}>            
+                <form onSubmit={this.onFormSubmit}>            
                     {Object.keys(formData).map((key) => {
                         const {label, value, validations} = formData[key];
                         if (key !== "houseType" && key !== "details"){
@@ -162,7 +171,7 @@ class SendForm extends Component {
                                         placeholder="Tell us more about the details of the project you want to build" 
                                         cols="30"
                                         rows="10"
-                                        style={{outline:'none', resize:'none', height:'8rem'}}
+                                        style={{outline:'none', resize:'none', height:'8rem', fontSize:'1rem'}}
                                     />
                                 </label>
                             )

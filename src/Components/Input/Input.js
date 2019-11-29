@@ -52,7 +52,7 @@ export default class Input extends Component {
         const dirty = this.state.dirty;
         return(
             <div>
-                <input 
+                <input
                     {...this.props} 
                     onChange={(event) => {
                         this.setState({

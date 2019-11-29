@@ -11,7 +11,7 @@ const Styles = styled.div`
 const Header = () => {
     return(
         <Styles>
-            <nav style={{position:"fixed"}}>
+            <nav style={{position:"fixed", zIndex:'20'}}>
                 <div className="nav-wrapper grey darken-2">
                     <div className="header-top">
                         <Link to="/" className="brand-logo">HongWei</Link>
