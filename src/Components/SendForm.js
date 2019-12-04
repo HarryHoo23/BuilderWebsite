@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Input from './Input/Input';
-import emailjs from 'emailjs-com';
+// import emailjs from 'emailjs-com';
 
 const Button = styled.button`
     margin-top: 2rem;
