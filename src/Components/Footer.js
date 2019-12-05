@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer = () => {
     return(
-        <footer className="page-footer" style={{background:'linear-gradient(90deg,rgba(31,37,83,1) 0%,rgba(80,120,200,0.9) 75%)'}}>
+        <footer className="page-footer" style={{background:'linear-gradient(90deg,rgba(31,37,83,1) 0%,rgba(80,120,200,1) 75%)'}}>
           <div className="container">
             <div className="row">
               <div className="col l6 s12">

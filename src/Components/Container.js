@@ -9,4 +9,7 @@ export const Container = styled.div`
     @media only screen and (min-width: 993px) {
         width: 90%;
     }
+    @media only screen and (max-width: 600px) {
+        width: 90%;
+    }
 `
