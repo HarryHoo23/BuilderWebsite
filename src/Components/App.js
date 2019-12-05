@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header/Header';
 import HomePage from '../Components/HomePage';
 import DisplayPage from '../Components/DisplayPage';
-import BuildWithUs from '../Components/BuildWithUs';
+import BuildWithUs from '../Components/BuildWithUs/BuildWithUs';
 import DetailPage from '../Components/DetailPage';
 import Footer from '../Components/Footer';
 

@@ -23,7 +23,6 @@ class DetailPage extends React.Component{
                         This is a detail page
                     </div>
                 </Container>
-                
             </div>
         )
     }

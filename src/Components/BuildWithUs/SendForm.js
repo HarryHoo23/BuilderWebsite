@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Input from './Input/Input';
+import Input from '../Input/Input';
 // import emailjs from 'emailjs-com';
 
 const Button = styled.button`

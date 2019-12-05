@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import img from '../pic/bg-house.jpg';
+import img from '../pic/background.jpg';
 import Promotion from './Promotion';
 import { Container } from './Container';
 import Card from './Card';

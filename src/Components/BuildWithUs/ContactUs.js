@@ -52,7 +52,8 @@ const ContactUs = () => {
             <address>                                
                 <Span><P><Icon className="material-icons" >contact_phone</Icon><strong>Phone</strong>: 0406686125</P></Span>
                 <Span><P><Icon className="material-icons" >home</Icon><strong>Address</strong>: lv1, 60 Belgrave Rd, Malvern East</P></Span>
-                <Span><P><Icon className="material-icons" >work</Icon><strong>Phone</strong>:0406686125</P></Span>              
+                <Span><P><Icon className="material-icons" >work</Icon><strong>Phone</strong>: 0406686125</P></Span>              
+                <Span><P><Icon className="material-icons" >email</Icon><strong>Email</strong>: hoozh1123@gmail.com</P></Span>              
             </address>
             
             
