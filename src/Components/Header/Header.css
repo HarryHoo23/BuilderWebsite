@@ -6,3 +6,11 @@
 .sidenav-overlay {
     z-index: 11;
 }
+
+.dropdown-content {
+    background: rgb(75, 77,105);
+}
+
+#dropdown1 li a {
+    color: white;
+}

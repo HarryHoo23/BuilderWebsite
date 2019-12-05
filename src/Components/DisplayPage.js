@@ -5,6 +5,20 @@ import M from 'materialize-css';
 
 const Layout = styled.div`
     padding: 3rem 0;
+
+    .tabs .tab a{
+        color: rgb(80, 85,115);
+    }
+
+    .tabs .indicator {
+        background-color: rgb(80, 80, 110);
+    }
+
+    .tabs .tab a:hover {
+        background-color: transparent;
+        color: black;
+        font-weight: 400;
+    }
 `
 
 class DisplayPage extends React.Component {

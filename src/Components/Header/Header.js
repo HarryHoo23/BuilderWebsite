@@ -6,7 +6,7 @@ import { Container } from '../Container';
 import styled from 'styled-components';
 
 const Navgation = styled.nav`
-background: linear-gradient(90deg,rgba(80,120,200,0.8) 0%,rgba(31,37,83,0.7) 75%);
+    background: linear-gradient(90deg,rgba(80,120,200,0.8) 0%,rgba(31,37,83,0.7) 75%);
 `
 
 class Header extends React.Component {
