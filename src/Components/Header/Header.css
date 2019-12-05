@@ -1,0 +1,8 @@
+.sidenav {
+    padding-top: 20px;
+    width: 250px;
+}
+
+.sidenav-overlay {
+    z-index: 11;
+}

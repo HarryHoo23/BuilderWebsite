@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// const Heading = styled.div`
-//     width: 100%;
-//     text-align: center;
-// `
+const Content = styled.div`
+    padding: 2rem 0;
+`
 
 const H5 = styled.h5`
     color: #ffab91;
@@ -27,11 +26,17 @@ const H2 = styled.h2`
 
 const P = styled.p`
     display: inline-flex;
-    font-size: 20px;
+    font-size: 15px;
+    font-style: normal;
 `
 
 const Icon = styled.i`
-    width: 3rem;
+    width: 2.5rem;
+    font-size: 1.5rem;
+`
+
+const Span = styled.span`
+    display: block;
 `
 
 const ContactUs = () => {
@@ -41,18 +46,14 @@ const ContactUs = () => {
                 <H5>Who we are</H5>
                 <H2>Get<br/>In <strong>Touch</strong></H2>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quae, porro ab, laudantium soluta provident sed alias nisi molestiae, velit dicta illum facere vero dolores fugiat voluptas eius ut. Corrupti?</p>
-            <div>                                
-                <P><Icon className="material-icons small" >contact_phone</Icon>0406686125</P>
-            </div>
-            <div>                
-                <P><Icon className="material-icons small" >contact_phone</Icon>0406686125</P>
-                
-            </div>
-            <div>                
-                <P><Icon className="material-icons small" >contact_phone</Icon>0406686125</P>
-                
-            </div>
+            <Content>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quae, porro ab, laudantium soluta provident sed alias nisi molestiae, velit dicta illum facere vero dolores fugiat voluptas eius ut. Corrupti?</p>
+            </Content>
+            <address>                                
+                <Span><P><Icon className="material-icons" >contact_phone</Icon><strong>Phone</strong>: 0406686125</P></Span>
+                <Span><P><Icon className="material-icons" >home</Icon><strong>Address</strong>: lv1, 60 Belgrave Rd, Malvern East</P></Span>
+                <Span><P><Icon className="material-icons" >work</Icon><strong>Phone</strong>:0406686125</P></Span>              
+            </address>
             
             
             

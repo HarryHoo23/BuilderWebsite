@@ -13,7 +13,7 @@ const Box = styled.div`
 
 const Promotion = (props) => {
     return(
-        <div className={`col s4 center ${props.class}`} data-wow-duration={props.data}>
+        <div className={`col m4 l4 s12 center ${props.class}`} data-wow-duration={props.data}>
             <Box>
                 <i className="medium material-icons">{props.icon}</i>
                 <h5>{props.name}</h5>

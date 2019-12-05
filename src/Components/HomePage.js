@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import img from '../pic/bg-house.jpg';
 import Promotion from './Promotion';
-import Footer from './Footer';
 import { Container } from './Container';
 import Card from './Card';
 import { Creative, Build, Plan } from './Introduction';

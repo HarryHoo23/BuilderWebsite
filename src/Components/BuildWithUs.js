@@ -22,7 +22,8 @@ class BuildWithUs extends Component {
                 <Container>
                     <SecondDiv className="row">
                         <SendForm />
-                        <ContactUs />
+                        <div className="col l1"></div>
+                        <ContactUs />                       
                     </SecondDiv>
                 </Container>
             </div>

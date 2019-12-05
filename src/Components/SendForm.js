@@ -132,7 +132,7 @@ class SendForm extends Component {
     render() {
         const { formData } = this.state;
         return(
-            <Layout className="col s12 m12 l7" style={{padding:'2rem'}}> 
+            <Layout className="col s12 m12 l6" style={{padding:'2rem'}}> 
                 <div style={{width:'100%', textAlign:'center', marginBottom:'2rem'}}>                
                     <h5 style={{display:'inline-block'}}>Send Message</h5>
                 </div>    

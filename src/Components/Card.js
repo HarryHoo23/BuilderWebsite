@@ -28,7 +28,7 @@ class Card extends React.Component {
                     <Link className="waves-effect btn-small white" style={{color:'black', border:'solid 1px rgba(1,1,1,.3)', borderRadius:'12px'}}><i className="material-icons right" style={{transform:'rotate(180deg)'}}>more</i>Read More</Link>
                 </div>
                 <div className="col l1"></div>
-                <div className="col l7 m12 s12" style={{paddingTop:'10px'}}>
+                <div className="col l6 m12 s12" style={{paddingTop:'10px'}}>
                     <img src={require(`../pic/${this.props.image}.jpg`)} className="responsive-img materialboxed" alt="three-pics">
                     </img>
                 </div> 
