@@ -5,8 +5,9 @@ const Box = styled.div`
     padding: 3rem 1rem;
     background: #FFF;
     box-shadow: 0 0 10px rgba(0,0,0,.15);
+    transition: all 200ms linear;
     :hover {
-        background-color: #f4c613;
+        background-color: rgba(80,120,200,0.8);
     }
 `
 

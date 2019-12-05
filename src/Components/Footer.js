@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Container } from './Container';
+// import styled from 'styled-components';
+// import { Container } from './Container';
 
 const Footer = () => {
     return(
-        <footer class="page-footer" style={{background:'linear-gradient(90deg,rgba(31,37,83,0.7) 0%,rgba(80,120,200,0.8) 75%)'}}>
+        <footer class="page-footer" style={{background:'linear-gradient(90deg,rgba(31,37,83,1) 0%,rgba(80,120,200,0.9) 75%)'}}>
           <div class="container">
             <div class="row">
               <div class="col l6 s12">

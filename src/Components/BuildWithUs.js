@@ -18,7 +18,7 @@ class BuildWithUs extends Component {
     render() {
         return(
             <div>
-                <img className="responsive-img" src={img} />                                    
+                <img className="responsive-img" src={img} alt="background-pictures" />                                    
                 <Container>
                     <SecondDiv className="row">
                         <SendForm />

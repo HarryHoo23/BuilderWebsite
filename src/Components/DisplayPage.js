@@ -4,13 +4,10 @@ import styled from 'styled-components';
 import M from 'materialize-css';
 
 const Layout = styled.div`
-    padding-top:6rem;
+    padding: 3rem 0;
 `
 
 class DisplayPage extends React.Component {
-    constructor(props){
-        super(props);
-    }
 
     componentDidMount(){
         M.Tabs.init(this.Tabs);        
@@ -18,9 +15,7 @@ class DisplayPage extends React.Component {
 
     render(){
         return(
-            <div>
-                <Layout>
-                </Layout>
+            <Layout>
                 <div className="container">
                     <div className="row">
                     <ul
@@ -52,7 +47,7 @@ class DisplayPage extends React.Component {
                     </div>
                     </div>
                 </div>
-            </div>
+            </Layout>
         )
     }
 }

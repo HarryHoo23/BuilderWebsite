@@ -7,7 +7,7 @@ const DisplayCard = (props) => {
             <div className="col s12 m6">
                 <div className="card">
                     <div className="card-image">
-                        <img src={require('../pic/builder.jpg')} className="responsive-img" />
+                        <img src={require('../pic/builder.jpg')} className="responsive-img" alt="builder-pic" />
                         <span class="card-title">{props.title}</span>                        
                     </div>
                     {/* <div className="container">
