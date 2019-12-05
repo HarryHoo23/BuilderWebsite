@@ -36,11 +36,11 @@ class DisplayPage extends React.Component {
                         </li>
                         </ul>
                         <div id="swipe-house" className="col s12">
-                            <DisplayCard title="TownHouse" />                                                
+                            <DisplayCard title="House" />                                                
                             <DisplayCard />
                         </div>
                         <div id="swipe-townHouse" className="col s12">
-                            <DisplayCard />
+                            <DisplayCard title="TownHouse" />
                         </div>
                         <div id="swipe-apartment" className="col s12">
                             <DisplayCard />
