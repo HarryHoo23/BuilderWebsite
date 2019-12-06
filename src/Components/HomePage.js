@@ -54,16 +54,18 @@ const HeadingContentInner = styled.div`
 const H1 = styled.h1`
     display: inline-block;
     color: #FFF;
-    font-weight: 200;
+    font-weight: 100;
 `
 
 const SPAN = styled.span`
-    color: red;
+    color: #e0e0e0;
     font-weight: 200;
+    font-family:'Merriweather', serif;
 `
 
 const P = styled.p`
     color: #FFF;
+    font-family: 'Open Sans', sans-serif;
 `
 
 
@@ -81,13 +83,13 @@ class HomePage extends React.Component {
                     <Overlay />   
                     <HeadingContent>
                         <HeadingContentInner>
-                        <div className="center">
+                        <div className="center wow fadeInUp" data-wow-duration="3s">
                             <H1>Hongwei</H1><br />
                             <H1 id="home-heading-2">Creative <SPAN>Constructor</SPAN></H1>
                         </div>
 
                         <div className="container center">
-                            <P>This is some text that has no meaning in it. So just take a look
+                            <P className="wow bounceIn" data-wow-duration="3s">This is some text that has no meaning in it. So just take a look
                                 wiil be fine. And I still need to make this paragraph a little bit
                                 longer to show the long enough content.
                             </P>
@@ -109,14 +111,11 @@ class HomePage extends React.Component {
                 </div>
                 <div className="white">
                     <div className="container" style={{padding:'2rem 0'}}>
-                        <Card title="Creative Innovation" introduction={Creative} image="home_bg1" />
-                        <Card title="Build Custom" introduction={Build} image="home_bg2" />
-                        <Card title="Pre-designed Fllor Plans" introduction={Plan} image="home_bg3" />
+                        <Card title="Creative Innovation" introduction={Creative} image="home_bg1" class="wow fadeInLeft" data="3s" />
+                        <Card title="Build Custom" introduction={Build} image="home_bg2" class="wow fadeInRight" data="3s" />
+                        <Card title="Pre-designed Fllor Plans" introduction={Plan} image="home_bg3" class="wow fadeInLeft" data="3s" />
                     </div>
                 </div>
-                {/* <div className="white">
-                    <Footer />                        
-                </div>  */}
             </div>    
         )
     }

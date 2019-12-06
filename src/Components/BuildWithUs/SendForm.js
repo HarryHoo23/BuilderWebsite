@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Input from '../Input/Input';
-// import emailjs from 'emailjs-com';
+import M from 'materialize-css';
+import { USER_ID, TEMPLATE_ID, SERVICE_ID } from './keys';
+import * as emailjs from 'emailjs-com';
 
 const Button = styled.button`
     margin-top: 2rem;
@@ -25,7 +27,8 @@ class SendForm extends Component {
             formData:{
                 name : {
                     value: '',
-                    label: 'Name',
+                    label: 'Your Name',
+                    placeHolder: 'Please Enter Your Name',
                     icon: 'mode_edit', 
                     validations: [{
                         validator:'isNotEmpty',
@@ -35,6 +38,7 @@ class SendForm extends Component {
                 phone : {
                     value: '',
                     label: 'Phone Number',
+                    placeHolder: 'Please Enter Your Phone Number',
                     validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Your Phone Number'
@@ -43,6 +47,7 @@ class SendForm extends Component {
                 email : {
                     value: '',
                     label: 'Email Address',
+                    placeHolder: 'Please Enter Your Email-Address',
                     validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Your Email Address'
@@ -54,6 +59,7 @@ class SendForm extends Component {
                 address : {
                     value: '',
                     label: 'Project Address',
+                    placeHolder: 'Please Enter the Project Address',
                     validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Project Address'
@@ -62,6 +68,7 @@ class SendForm extends Component {
                 budget : {
                     value: '',
                     label: 'Enter Your Budget',
+                    placeHolder: 'Please Enter Your Budget',
                     validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Your Budget'
@@ -70,6 +77,7 @@ class SendForm extends Component {
                 houseType : {
                     value: '',
                     label: 'Choose the House Type',
+                    placeHolder: 'Please Choose Your HouseType',
                     validations: [{
                         validator:'isNotEmpty',
                         message: 'Please choose the house Type you prefer'
@@ -77,7 +85,8 @@ class SendForm extends Component {
                 },
                 details : {
                     value: '',
-                    label: 'Please tell us more about the project Details',
+                    label: 'Project Details',
+                    placeHolder: 'Please Tell us more Details',
                     validations: [{
                         validator:'isNotEmpty',
                         message: 'Please input the details of your Projects'
@@ -86,6 +95,11 @@ class SendForm extends Component {
             }
         };
         this.handleInputChange = this.handleInputChange.bind(this);
+    }
+
+    componentDidMount(){
+        let elems = document.querySelectorAll('.modal');
+        M.Modal.init(elems, {inDuration:300});
     }
 
     handleInputChange(key) {
@@ -118,15 +132,57 @@ class SendForm extends Component {
             clientDeatilsAboutProject: this.state.formData.details.value,
         }
 
-        // emailjs.sendForm("hoozh1123_gmail_com", "template_rn0wlcdT", templateParams, "user_yUW74rtEDmz3gmHu9aBnl")
-        //     .then((res) => {
-        //         console.log(res.text);
-        //     }, (err) => {
-        //         console.log(err.text);
-        //     })
+        const content = `Hi, \n this is ${quote.clientName}, I would like to know more about ${quote.clientHouseType}.
+        My budget is ${quote.clientBudget}, project address is ${quote.clientProjectAddress}. \n Here is more details: ${quote.clientDeatilsAboutProject};
+        \n please call me back at ${quote.clientPhoneNumber}`
 
-        console.log(quote);
+        var template_params = {
+            "reply_to": quote.clientEmail,
+            "from_name": quote.clientName,
+            "to_name": "Harry Hu",
+            "message_html": content
+        }
 
+        // if (!quote.clientName && !quote.clientPhoneNumber && !quote.clientEmail && !quote.clientProjectAddress && !quote. )
+
+        emailjs.send(
+            SERVICE_ID,
+            TEMPLATE_ID,
+            template_params,
+            USER_ID
+        ).then((res)=> {
+            console.log(res);
+        }, (err) => {
+            console.log(err)
+        })
+    }
+
+    renderModal(){
+        if(!true){
+            return (
+                <div id="modal1" className="modal">
+                    <div className="modal-content">
+                    <h4>You must Enter all the Fileds!</h4>
+                    <p>Please Check if you missed something.</p>
+                    </div>
+                    <div className="modal-footer">
+                    <a href="#!" className="modal-close waves-effect waves-green btn-flat green">OK</a>
+                    </div>
+                </div>
+            )
+        } else {
+            return(
+                <div id="modal1" className="modal">
+                    <div className="modal-content">
+                    <h4>Your Request Has Been Sent Successfully!</h4>
+                    <p>We will get back to you soon!</p>
+                    </div>
+                    <div className="modal-footer">
+                    <a href="#!" className="modal-close waves-effect waves-green btn-flat green">OK</a>
+                    </div>
+                </div>
+            )
+        }
     }
     
     render() {
@@ -138,13 +194,13 @@ class SendForm extends Component {
                 </div>    
                 <form onSubmit={this.onFormSubmit}>            
                     {Object.keys(formData).map((key) => {
-                        const {label, value, validations} = formData[key];
+                        const {label, value, validations, placeHolder} = formData[key];
                         if (key !== "houseType" && key !== "details"){
                             return(                           
                                 <label key={key}>{label}
                                 <Input 
                                     key={key}
-                                    placeholder={label} 
+                                    placeholder={placeHolder} 
                                     value={value}
                                     validations={validations}
                                     onChange={this.handleInputChange(key)}
@@ -177,10 +233,23 @@ class SendForm extends Component {
                             )
                         }                                       
                     })}                                                
-                    <Button className="btn waves-effect waves-light" type="submit">Submit
+                    <Button className="btn waves-effect waves-light btn modal-trigger" 
+                            type="submit" 
+                            onClick={this.onFormSubmit}
+                            data-target="modal1" 
+                            disabled={!this.state.formData.email.value 
+                                    || !this.state.formData.name.value 
+                                    || !this.state.formData.phone.value 
+                                    || !this.state.formData.address.value
+                                    || !this.state.formData.houseType.value
+                                    || !this.state.formData.details.value
+                                    || !this.state.formData.budget.value}
+                    >
+                        Submit
                         <i className="material-icons right">send</i>
                     </Button>
                 </form>
+                <div>{this.renderModal()}</div>
             </Layout>
         )
     }    

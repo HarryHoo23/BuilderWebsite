@@ -24,8 +24,8 @@ class Header extends React.Component {
                 <ul id="dropdown1" className="dropdown-content">
                     <li><Link to="/displayPage">Display All</Link></li>
                     <li className="divider"></li>
-                    <li><Link to="#swipe-townHouse">House</Link></li>
-                    <li><Link to="#!">Town House</Link></li>                    
+                    <li><Link to="/displayPage">House</Link></li>
+                    <li><Link to="/displayPage">Town House</Link></li>                    
                     <li><Link to="#!">Apartment</Link></li>
                 </ul>
                 <Navgation className="grey darken-5" style={{zIndex:'10'}}>
@@ -42,8 +42,8 @@ class Header extends React.Component {
                     </Container>
                 </Navgation>
                 <ul className="sidenav" id="mobile-demo">
-                    <li><div class="user-view">
-                    <div class="center">
+                    <li><div className="user-view">
+                    <div className="center">
                         <img src={require('../../pic/builder.jpg')} className="img-responsive circle" style={{height:'70px', width:'70px', display:'unset'}} alt="avatar" />
                     </div>
                     </div></li>

@@ -1,11 +1,13 @@
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import M from 'materialize-css';
 
-// const Word = styled.div`
-    
-// `
+const Word = styled.div`
+    p {
+        font-family: 'Open Sans', sans-serif;
+    }
+`
 
 
 class Card extends React.Component {
@@ -18,7 +20,7 @@ class Card extends React.Component {
     render(){
         return (
             <div className="row" style={{marginBottom:'0px', padding:'10px 0'}}>
-                <div className="col l5 m12 s12">
+                <Word className={`col l5 m12 s12 ${this.props.class}`} data-wow-duration={this.props.data}>
                     <h5>
                         {this.props.title}
                     </h5>
@@ -26,9 +28,9 @@ class Card extends React.Component {
                         {this.props.introduction}
                     </p>
                     <Link className="waves-effect btn-small white" style={{color:'black', border:'solid 1px rgba(1,1,1,.3)', borderRadius:'12px'}}><i className="material-icons right" style={{transform:'rotate(180deg)'}}>more</i>Read More</Link>
-                </div>
+                </Word>
                 <div className="col l1"></div>
-                <div className="col l6 m12 s12" style={{paddingTop:'10px'}}>
+                <div className={`col l6 m12 s12 ${this.props.class}`} data-wow-duration={this.props.data} style={{paddingTop:'10px'}}>
                     <img src={require(`../pic/${this.props.image}.jpg`)} className="responsive-img materialboxed" alt="three-pics">
                     </img>
                 </div> 

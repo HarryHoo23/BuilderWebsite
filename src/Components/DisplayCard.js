@@ -1,5 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const ReadMore = styled.div`
+    
+`
 
 const DisplayCard = (props) => {
     return(
@@ -19,9 +24,9 @@ const DisplayCard = (props) => {
                         I am convenient because I require little markup to use effectively.
                         </p>
                     </div>
-                    <div className="card-action">
-                        <Link to="/displayPage/detailPage">Read More ></Link>
-                    </div>
+                    <ReadMore className="card-action">
+                        <Link to="/displayPage/detailPage" >Read More ></Link>
+                    </ReadMore>
                 </div>
             </div>
         </div>
