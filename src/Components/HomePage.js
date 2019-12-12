@@ -4,9 +4,10 @@ import img from '../pic/background.jpg';
 import Promotion from './Promotion';
 import { Container } from './Container';
 import Card from './Card';
-import { Creative, Build, Plan } from './Introduction';
-import WOW from 'wowjs';
+import WOW from 'wowjs'; 
 // import Carousel from '../Plugin/Carousel';
+
+var data = require('../Database/db.json');
 
 const Background = styled.div`
     position: fixed;
@@ -83,13 +84,13 @@ class HomePage extends React.Component {
                     <Overlay />   
                     <HeadingContent>
                         <HeadingContentInner>
-                        <div className="center wow fadeInUp" data-wow-duration="3s">
-                            <H1>Hongwei</H1><br />
-                            <H1 id="home-heading-2">Creative <SPAN>Constructor</SPAN></H1>
+                        <div className="center wow fadeInUp" data-wow-duration="2s">
+                            <H1 style={{fontWeight:'300', fontFamily:'Patrick Hand, cursive', fontSize:'70px', color:'#e0e0e0'}}>HONGWEI</H1><br />
+                            <H1 id="home-heading-2">Expert in <SPAN>Domestic Construction</SPAN></H1>
                         </div>
 
                         <div className="container center">
-                            <P className="wow bounceIn" data-wow-duration="3s">This is some text that has no meaning in it. So just take a look
+                            <P className="wow bounceIn" data-wow-duration="2s">This is some text that has no meaning in it. So just take a look
                                 wiil be fine. And I still need to make this paragraph a little bit
                                 longer to show the long enough content.
                             </P>
@@ -98,22 +99,19 @@ class HomePage extends React.Component {
                     </HeadingContent>                                        
                 </Heading>                  
                 <div className="grey lighten-4">                
-                    <Container style={{padding:'6em 1.5em'}}>
-                        {/* <div className="center">
-                            <h2>Our Mission</h2>
-                        </div> */}
+                    <Container style={{padding:'6em 1.5em'}}>                       
                         <div className="row" style={{paddingTop:'1.5em'}}>
-                            <Promotion name="Speed Development" icon="flash_on" class="wow fadeInLeft" data="3s" />
-                            <Promotion name="User Experience" icon="assignment_ind" class="wow fadeInUp" data="3s" />
-                            <Promotion name="Easy to Work With" icon="build" class="wow fadeInRight" data="3s" />
+                            <Promotion name="Speed Development" icon="flash_on" class="wow fadeInLeft" data="2s" detail={data.PromotionData[0].Promotion1} />
+                            <Promotion name="User Experience" icon="assignment_ind" class="wow fadeInUp" data="2s" detail={data.PromotionData[0].Promotion2} />
+                            <Promotion name="Easy to Work With" icon="build" class="wow fadeInRight" data="2s" detail={data.PromotionData[0].Promotion3} />
                         </div>
                     </Container>
                 </div>
                 <div className="white">
                     <div className="container" style={{padding:'2rem 0'}}>
-                        <Card title="Creative Innovation" introduction={Creative} image="home_bg1" class="wow fadeInLeft" data="3s" />
-                        <Card title="Build Custom" introduction={Build} image="home_bg2" class="wow fadeInRight" data="3s" />
-                        <Card title="Pre-designed Fllor Plans" introduction={Plan} image="home_bg3" class="wow fadeInLeft" data="3s" />
+                        <Card title="Creative Innovation" introduction={data.CardData[0].Creative} image="home_bg1" class="wow fadeInLeft" data="2s" />
+                        <Card title="Build Custom" introduction={data.CardData[0].Build} image="home_bg2" class="wow fadeInRight" data="2s" />
+                        <Card title="Pre-designed Fllor Plans" introduction={data.CardData[0].Plan} image="home_bg3" class="wow fadeInLeft" data="2s" />
                     </div>
                 </div>
             </div>    

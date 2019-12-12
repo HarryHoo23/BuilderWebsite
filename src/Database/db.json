@@ -1,0 +1,17 @@
+{
+    "PromotionData": [
+        {
+            "Promotion1": "We provide very good services and we are here to help you, please contact us immediately, no hesitation.",
+            "Promotion2": "We provide very good services and we are here to help you, You are very welcome.",
+            "Promotion3": "We provide very good services and we are here to help you, please contact us immediately, no hesitation."
+        }
+    ],
+    "CardData":[
+        {
+            "Creative": "Hallbury has never built the same home twice. Each Hallbury home has a presence defined by design sophistication and the personality of its owners.Our design process takes into consideration your land, budget and lifestyle requirements. Hallbury achieves this balance on every project. It comes from dedicating ourselves to delivering value, an absolute commitment to design innovation, precision craftsmanship and client communication",
+            "Build": "Let us design your home to be as distinctive as you. Picture your perfect home and we will help you realise it. Hallbury’s designers work with you to visualise your home ideas and guide you through the design process. Whether your budget is $400k or $1 million plus, we will ensure we deliver the best possible outcome through creative design processes and a clear understanding of your priorities.",
+            "Plan": "Choose one of our pre-designed floor plans and one of our designers can alter the plan to suit your needs. Why be limited to just a `'standard'` floor plan, when you can create something that is unique to you."
+        }
+    ]
+    
+}

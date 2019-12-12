@@ -19,6 +19,9 @@ class BuildWithUs extends Component {
     componentDidMount(){
         let elements = document.querySelectorAll('.carousel');
         M.Carousel.init(elements, {fullWidth:true, indicators:true, pressed: true});
+        // let instance = M.Carousel.getInstance(elements);
+        // instance.next();
+        // instance.prev();
     }
 
     render() {

@@ -8,7 +8,9 @@ import App from './Components/App';
 WebFont.load({
     google: {
       families: ['Open Sans', 'sans-serif',
-                 'Merriweather', 'serif'
+                 'Merriweather', 'serif',
+                 'Satisfy', 'cursive',
+                 'Patrick Hand', 'cursive'
         ]
     }
   });

@@ -31,6 +31,7 @@ class Header extends React.Component {
                 <Navgation className="grey darken-5" style={{zIndex:'10'}}>
                     <Container className="nav-wrapper">
                         <div className="header-top">
+                            <Link to="/"><img src={require('../../pic/logo-white.png')} className="img-responsive" style={{height:'4.5rem'}} alt="logo"/></Link>
                             <Link to="/" className="brand-logo">HongWei</Link>
                             <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">

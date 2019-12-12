@@ -4,7 +4,7 @@ import Header from './Header/Header';
 import HomePage from '../Components/HomePage';
 import DisplayPage from '../Components/DisplayPage';
 import BuildWithUs from '../Components/BuildWithUs/BuildWithUs';
-import DetailPage from '../Components/DetailPage';
+import DetailPage from '../Components/DetailPage/DetailPage';
 import Footer from '../Components/Footer';
 
 class App extends Component {

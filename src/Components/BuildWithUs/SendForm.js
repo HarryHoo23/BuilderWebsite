@@ -166,7 +166,7 @@ class SendForm extends Component {
                     <p>Please Check if you missed something.</p>
                     </div>
                     <div className="modal-footer">
-                    <a href="#!" className="modal-close waves-effect waves-green btn-flat green">OK</a>
+                    <button className="modal-close waves-effect waves-green btn-flat green">OK</button>
                     </div>
                 </div>
             )

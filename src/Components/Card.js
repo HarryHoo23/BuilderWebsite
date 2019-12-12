@@ -7,6 +7,12 @@ const Word = styled.div`
     p {
         font-family: 'Open Sans', sans-serif;
     }
+
+    .readButton {
+        color: black;
+        border: solid 1px rgba(1,1,1,.3);
+        border-radius: 12px;
+    }
 `
 
 
@@ -27,7 +33,7 @@ class Card extends React.Component {
                     <p>
                         {this.props.introduction}
                     </p>
-                    <Link className="waves-effect btn-small white" style={{color:'black', border:'solid 1px rgba(1,1,1,.3)', borderRadius:'12px'}}><i className="material-icons right" style={{transform:'rotate(180deg)'}}>more</i>Read More</Link>
+                    <Link to="/" className="btn-small waves-effect waves-light white readButton" ><i className="material-icons right" style={{transform:'rotate(180deg)'}}>more</i>Read More</Link>
                 </Word>
                 <div className="col l1"></div>
                 <div className={`col l6 m12 s12 ${this.props.class}`} data-wow-duration={this.props.data} style={{paddingTop:'10px'}}>
