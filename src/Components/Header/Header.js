@@ -2,7 +2,7 @@ import './Header.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import M from 'materialize-css';
-import { Container } from '../Container';
+import { Container } from '../Container/Container';
 import styled from 'styled-components';
 
 const Navgation = styled.nav`

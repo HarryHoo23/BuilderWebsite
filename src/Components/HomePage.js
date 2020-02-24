@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import img from '../pic/background.jpg';
 import Promotion from './Promotion';
-import { Container } from './Container';
-import Card from './Card';
+import { Container } from './Container/Container';
+import Card from './DisplayFrames/Card';
 import WOW from 'wowjs'; 
 // import Carousel from '../Plugin/Carousel';
 

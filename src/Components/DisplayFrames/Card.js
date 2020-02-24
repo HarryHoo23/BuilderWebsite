@@ -37,7 +37,7 @@ class Card extends React.Component {
                 </Word>
                 <div className="col l1"></div>
                 <div className={`col l6 m12 s12 ${this.props.class}`} data-wow-duration={this.props.data} style={{paddingTop:'10px'}}>
-                    <img src={require(`../pic/${this.props.image}.jpg`)} className="responsive-img materialboxed" alt="three-pics">
+                    <img src={require(`../../pic/${this.props.image}.jpg`)} className="responsive-img materialboxed" alt="three-pics">
                     </img>
                 </div> 
             </div>

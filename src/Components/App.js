@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header/Header';
 import HomePage from '../Components/HomePage';
-import DisplayPage from '../Components/DisplayPage';
+import DisplayPage from './DisplayFrames/DisplayPage';
 import BuildWithUs from '../Components/BuildWithUs/BuildWithUs';
 import DetailPage from '../Components/DetailPage/DetailPage';
-import Footer from '../Components/Footer';
+import Footer from './DisplayFrames/Footer';
 
 class App extends Component {
     render(){

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SendForm from './SendForm';
 import img from '../../pic/livingRoom.jpg';
 import styled from 'styled-components';
-import { Container } from '../Container';
+import { Container } from '../Container/Container';
 import ContactUs from './ContactUs';
 import M from 'materialize-css';
 

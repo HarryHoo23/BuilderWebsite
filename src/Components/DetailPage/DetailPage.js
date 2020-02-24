@@ -1,12 +1,11 @@
 import React from 'react';
-import { Container } from '../Container';
+import { Container } from '../Container/Container';
 import styled from 'styled-components';
 import M from 'materialize-css';
 
 const Background = styled.div`
 
 `
-
 
 class DetailPage extends React.Component{
     // state={commments=[], imgUrl:'' }
