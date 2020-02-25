@@ -6,30 +6,38 @@ const ReadMore = styled.div`
     
 `
 
+const Card = styled.div`
+    .link {
+        color: #0066cc !important;
+    }
+
+    :hover a {
+        color: #3399ff !important;
+        transition: 0.4s;
+    }
+
+`
+
 const DisplayCard = (props) => {
     return(
-        <div>            
-            <div className="col s12 m6">
-                <div className="card">
+        <Card>            
+            <div className="col s12 m4 l6">
+                <div className="card" style={{width: '350px', margin: '15px 20px'}}>
                     <div className="card-image">
-                        <img src={require('../../pic/builder.jpg')} className="responsive-img" alt="builder-pic" />
+                        <img src={props.url} className="responsive-img" alt="builder-pic" />
                         <span className="card-title">{props.title}</span>                        
                     </div>
-                    {/* <div className="container">
-                        <h5 className="card-title">{props.title}</h5>
-                    </div> */}
                     <div className="card-content">
                         <p>
-                        I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.
+                        {props.information}
                         </p>
                     </div>
                     <ReadMore className="card-action">
-                        <Link to="/displayPage/detailPage" >Read More ></Link>
+                        <Link to={`/displayPage/detailPage/${props.type}/${props.id}`} className="link">Read More ></Link>
                     </ReadMore>
                 </div>
             </div>
-        </div>
+        </Card>
     )
 }
 

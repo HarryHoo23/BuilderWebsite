@@ -1,65 +1,143 @@
 import React from 'react';
 import DisplayCard from './DisplayCard';
 import styled from 'styled-components';
-import M from 'materialize-css';
+
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import axios from '../../axiosDB';
 
 const Layout = styled.div`
     padding: 3rem 0;
 
-    .tabs .tab a{
-        color: rgb(80, 85,115);
+    .cardDisplay {
+        display: flexbox;
+        flex-wrap: wrap;
+        align-content: space-around;
+        /* justify-content: space-between; */
     }
 
-    .tabs .indicator {
-        background-color: rgb(80, 80, 110);
-    }
-
-    .tabs .tab a:hover {
-        background-color: transparent;
-        color: black;
-        font-weight: 400;
-    }
 `
 
 class DisplayPage extends React.Component {
+    state = {
+        house: [],
+        apartment: [],
+        townhouse: []
+    }
 
     componentDidMount(){
-        M.Tabs.init(this.Tabs);        
+        this.fetchHouses();
+        this.fetchApartment();
+        this.fetchTownHouse();
+    }
+
+    fetchHouses() {
+        axios.get('/Card.json')
+        .then(res => {
+            const fetchHouses = [];
+            for (let key in res.data.House) {
+                fetchHouses.push({
+                    ...res.data.House[key],
+                    id: key
+                });
+            }
+            this.setState({house: fetchHouses});
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+    fetchApartment() {
+        axios.get('/Card.json')
+        .then(res => {
+            const fetchApartment = [];
+            for (let key in res.data.Apartment) {
+                fetchApartment.push({
+                    ...res.data.Apartment[key],
+                    id: key
+                });
+            }
+            this.setState({apartment: fetchApartment});
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+    fetchTownHouse() {
+        axios.get('/Card.json')
+        .then(res => {
+            const fetchTownHouse = [];
+            for (let key in res.data.TownHouse) {
+                fetchTownHouse.push({
+                    ...res.data.TownHouse[key],
+                    id: key
+                });
+            }
+            this.setState({townhouse: fetchTownHouse});
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render(){
+        console.log(this.state.townhouse)
         return(
             <Layout>
                 <div className="container">
-                    <div className="row">
-                    <ul
-                        ref={Tabs => {
-                            this.Tabs = Tabs;
-                        }}
-                        id="tabs-swipe-demo"
-                        className="tabs"
-                        >
-                        <li className="tab col s3">
-                            <a className="active" href="#swipe-house">House</a>
-                        </li>
-                        <li className="tab col s3">
-                            <a href="#swipe-townHouse">TownHouse</a>
-                        </li>
-                        <li className="tab col s3">
-                            <a href="#swipe-apartment">Apartment</a>
-                        </li>
-                        </ul>
-                        <div id="swipe-house" className="col s12">
-                            <DisplayCard title="House" />                                                
-                            <DisplayCard />
+                <Tabs>
+                    <TabList>
+                    <Tab>House</Tab>
+                    <Tab>Apartment</Tab>
+                    <Tab>TownHouse</Tab>
+                    </TabList>
+
+                    <TabPanel>
+                        <h4>House</h4>
+                        <div className="cardDisplay row">
+                            {this.state.house.map(house => {
+                                return (
+                                <DisplayCard 
+                                    key={house.id}
+                                    url={house.url}
+                                    information={house.description}
+                                />)
+                            })}
                         </div>
-                        <div id="swipe-townHouse" className="col s12">
-                            <DisplayCard title="TownHouse" />
+                    </TabPanel>
+                        
+                    <TabPanel>
+                        <h4>Apartment</h4>
+                        <div className="cardDisplay">
+                            {this.state.apartment.map(apart => {
+                                return (
+                                <DisplayCard 
+                                    key={apart.id}
+                                    url={apart.url}
+                                    information={apart.description}
+                                />)
+                            })}
                         </div>
-                        <div id="swipe-apartment" className="col s12">
-                            <DisplayCard />
-                    </div>
-                    </div>
+                    </TabPanel>
+
+                    <TabPanel>
+                        <h4>TownHouse</h4>
+                        <div className="cardDisplay">
+                            {this.state.townhouse.map(thouse => {
+                                return (
+                                <DisplayCard 
+                                    key={thouse.id}
+                                    id={thouse.id}
+                                    type="Townhouse"
+                                    url={thouse.url}
+                                    information={thouse.description}
+                                />)
+                            })}
+                        </div>
+                    </TabPanel>
+                </Tabs>
                 </div>
             </Layout>
         )

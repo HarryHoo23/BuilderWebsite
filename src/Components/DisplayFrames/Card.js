@@ -33,11 +33,12 @@ class Card extends React.Component {
                     <p>
                         {this.props.introduction}
                     </p>
-                    <Link to="/" className="btn-small waves-effect waves-light white readButton" ><i className="material-icons right" style={{transform:'rotate(180deg)'}}>more</i>Read More</Link>
+                    <Link to="/" className="btn-small waves-effect waves-light white readButton" >
+                        <i className="material-icons right" style={{transform:'rotate(180deg)'}}>more</i>Read More</Link>
                 </Word>
                 <div className="col l1"></div>
                 <div className={`col l6 m12 s12 ${this.props.class}`} data-wow-duration={this.props.data} style={{paddingTop:'10px'}}>
-                    <img src={require(`../../pic/${this.props.image}.jpg`)} className="responsive-img materialboxed" alt="three-pics">
+                    <img src={this.props.image} className="responsive-img materialboxed" alt="three-pics">
                     </img>
                 </div> 
             </div>

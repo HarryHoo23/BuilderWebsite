@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Box = styled.div`
     padding: 3rem 1rem;
+    height: 300px;
     background: #FFF;
     box-shadow: 0 0 10px rgba(0,0,0,.15);
     transition: all 200ms linear;
@@ -40,8 +41,10 @@ const Box = styled.div`
         }
 
         p {
-            font-size: 12px;
+            font-size: 13px;
         }
+        padding: 50px 25px 0px 25px;
+        margin: 15px 0;
     }
 
     @media only screen and (max-width: 600px) {
@@ -60,7 +63,7 @@ const Box = styled.div`
 
 const Promotion = (props) => {
     return(
-        <div className={`col m4 l4 s12 center ${props.class}`} data-wow-duration={props.data}>
+        <div className={`col m12 l4 s12 center ${props.class}`} data-wow-duration={props.data}>
             <Box >
                 <i className="medium material-icons">{props.icon}</i>
                 <h5>{props.name}</h5>

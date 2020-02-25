@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Input from '../Input/Input';
 import M from 'materialize-css';
+import { Link } from 'react-router-dom';
 import { USER_ID, TEMPLATE_ID, SERVICE_ID } from './keys';
 import * as emailjs from 'emailjs-com';
 
@@ -30,6 +31,7 @@ class SendForm extends Component {
                     label: 'Your Name',
                     placeHolder: 'Please Enter Your Name',
                     icon: 'mode_edit', 
+                    type: 'text',
                     validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Your Name'
@@ -38,6 +40,7 @@ class SendForm extends Component {
                 phone : {
                     value: '',
                     label: 'Phone Number',
+                    type: 'tel',
                     placeHolder: 'Please Enter Your Phone Number',
                     validations: [{
                         validator:'isNotEmpty',
@@ -60,6 +63,7 @@ class SendForm extends Component {
                     value: '',
                     label: 'Project Address',
                     placeHolder: 'Please Enter the Project Address',
+                    type: 'text',
                     validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Project Address'
@@ -69,6 +73,7 @@ class SendForm extends Component {
                     value: '',
                     label: 'Enter Your Budget',
                     placeHolder: 'Please Enter Your Budget',
+                    type: 'number',
                     validations: [{
                         validator:'isNotEmpty',
                         message: 'Please Enter Your Budget'
@@ -86,6 +91,7 @@ class SendForm extends Component {
                 details : {
                     value: '',
                     label: 'Project Details',
+                    type: 'text',
                     placeHolder: 'Please Tell us more Details',
                     validations: [{
                         validator:'isNotEmpty',
@@ -166,7 +172,7 @@ class SendForm extends Component {
                     <p>Please Check if you missed something.</p>
                     </div>
                     <div className="modal-footer">
-                    <button className="modal-close waves-effect waves-green btn-flat green">OK</button>
+                    <Link to="/build-with-us"><button className="modal-close waves-effect waves-green btn-flat green">OK</button></Link>
                     </div>
                 </div>
             )
@@ -178,7 +184,7 @@ class SendForm extends Component {
                     <p>We will get back to you soon!</p>
                     </div>
                     <div className="modal-footer">
-                    <a href="#!" className="modal-close waves-effect waves-green btn-flat green">OK</a>
+                    <Link to="/"><button className="modal-close waves-effect waves-green btn-flat green">OK</button></Link>
                     </div>
                 </div>
             )
@@ -186,6 +192,7 @@ class SendForm extends Component {
     }
     
     render() {
+        console.log(this.props);
         const { formData } = this.state;
         return(
             <Layout className="col s12 m12 l6" style={{padding:'2rem'}}> 
@@ -194,7 +201,7 @@ class SendForm extends Component {
                 </div>    
                 <form onSubmit={this.onFormSubmit}>            
                     {Object.keys(formData).map((key) => {
-                        const {label, value, validations, placeHolder} = formData[key];
+                        const {label, value, type, validations, placeHolder} = formData[key];
                         if (key !== "houseType" && key !== "details"){
                             return(                           
                                 <label key={key}>{label}
@@ -202,6 +209,7 @@ class SendForm extends Component {
                                     key={key}
                                     placeholder={placeHolder} 
                                     value={value}
+                                    type={type}
                                     validations={validations}
                                     onChange={this.handleInputChange(key)}
                                 />

@@ -60,6 +60,7 @@ export default class Input extends Component {
                         });
                     this.props.onChange(event);
                     }}
+                    type={this.props.type}
                 />
                 {dirty && validationMessage && (
                     <ErrorMessage>{validationMessage}</ErrorMessage>
