@@ -1,14 +1,15 @@
 import firebase from 'firebase';
+import { APIKEY, APPID, DATABASEURL } from '../Components/BuildWithUs/keys';
 import 'firebase/storage';
 
 var firebaseConfig = {
-    apiKey: "AIzaSyAYhFtnrSOmXRdbHpWFruzETO7L2A1gWHI",
+    apiKey: APIKEY,
     authDomain: "neat-vent-254802.firebaseapp.com",
-    databaseURL: "https://neat-vent-254802.firebaseio.com",
+    databaseURL: DATABASEURL,
     projectId: "neat-vent-254802",
     storageBucket: "neat-vent-254802.appspot.com",
     messagingSenderId: "991196638747",
-    appId: "1:991196638747:web:9044c8d0d0327acf9a92be",
+    appId: APPID,
     measurementId: "G-FLVE2K261R"
   };
 
