@@ -25,6 +25,8 @@ class SendForm extends Component {
         super(props);
 
         this.state = {
+            loading: false,
+            emailError: '',
             formData:{
                 name : {
                     value: '',
@@ -149,8 +151,6 @@ class SendForm extends Component {
             "message_html": content
         }
 
-        // if (!quote.clientName && !quote.clientPhoneNumber && !quote.clientEmail && !quote.clientProjectAddress && !quote. )
-
         emailjs.send(
             SERVICE_ID,
             TEMPLATE_ID,
@@ -158,41 +158,39 @@ class SendForm extends Component {
             USER_ID
         ).then((res)=> {
             console.log(res);
+            this.setState({loading: true});
         }, (err) => {
             console.log(err)
+            this.setState({loading: false, emailError: err})
         })
-    }
-
-    renderModal(){
-        if(!true){
-            return (
-                <div id="modal1" className="modal">
-                    <div className="modal-content">
-                    <h4>You must Enter all the Fileds!</h4>
-                    <p>Please Check if you missed something.</p>
-                    </div>
-                    <div className="modal-footer">
-                    <Link to="/build-with-us"><button className="modal-close waves-effect waves-green btn-flat green">OK</button></Link>
-                    </div>
-                </div>
-            )
-        } else {
-            return(
-                <div id="modal1" className="modal">
-                    <div className="modal-content">
-                    <h4>Your Request Has Been Sent Successfully!</h4>
-                    <p>We will get back to you soon!</p>
-                    </div>
-                    <div className="modal-footer">
-                    <Link to="/"><button className="modal-close waves-effect waves-green btn-flat green">OK</button></Link>
-                    </div>
-                </div>
-            )
-        }
     }
     
     render() {
-        console.log(this.props);
+        let Modal = (
+            <div id="modal1" className="modal">
+                <div className="modal-content">
+                    <h4>Your Request Has Been Sent Successfully!</h4>
+                    <p>We will get back to you soon!</p>
+                </div>
+                <div className="modal-footer">
+                    <button className="modal-close waves-effect waves-green btn-flat green accent-3" 
+                        onClick={() => window.location.reload()}>OK</button>
+                </div>
+            </div>
+        )
+        if (!true) {
+                Modal = (
+                    <div id="modal1" className="modal">
+                        <div className="modal-content">
+                            <h4>Something Wrong!</h4>
+                            <p>{this.state.emailError}</p>
+                        </div>
+                        <div className="modal-footer">
+                            <Link to="/build-with-us"><button className="modal-close waves-effect waves-green btn-flat green accent-3">OK</button></Link>
+                        </div>
+                    </div>
+                )    
+        }
         const { formData } = this.state;
         return(
             <Layout className="col s12 m12 l6" style={{padding:'2rem'}}> 
@@ -251,13 +249,12 @@ class SendForm extends Component {
                                     || !this.state.formData.address.value
                                     || !this.state.formData.houseType.value
                                     || !this.state.formData.details.value
-                                    || !this.state.formData.budget.value}
-                    >
+                                    || !this.state.formData.budget.value}>
                         Submit
                         <i className="material-icons right">send</i>
                     </Button>
                 </form>
-                <div>{this.renderModal()}</div>
+                {Modal}
             </Layout>
         )
     }    

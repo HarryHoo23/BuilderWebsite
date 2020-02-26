@@ -2,10 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const ReadMore = styled.div`
-    
-`
-
 const Card = styled.div`
     .link {
         color: #0066cc !important;
@@ -32,9 +28,12 @@ const DisplayCard = (props) => {
                         {props.information}
                         </p>
                     </div>
-                    <ReadMore className="card-action">
-                        <Link to={`/displayPage/detailPage/${props.type}/${props.id}`} className="link">Read More ></Link>
-                    </ReadMore>
+                    <div className="card-action">
+                        <Link to={{
+                            pathname: `/displayPage/detailPage/${props.type}/${props.id}`,
+                            data: [props.type, props.id]
+                        }} className="link">Read More ></Link>
+                    </div>
                 </div>
             </div>
         </Card>

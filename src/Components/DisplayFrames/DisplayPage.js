@@ -83,7 +83,6 @@ class DisplayPage extends React.Component {
     }
 
     render(){
-        console.log(this.state.townhouse)
         return(
             <Layout>
                 <div className="container">
@@ -102,6 +101,8 @@ class DisplayPage extends React.Component {
                                 <DisplayCard 
                                     key={house.id}
                                     url={house.url}
+                                    id={house.id}
+                                    type="House"
                                     information={house.description}
                                 />)
                             })}
@@ -116,6 +117,8 @@ class DisplayPage extends React.Component {
                                 <DisplayCard 
                                     key={apart.id}
                                     url={apart.url}
+                                    id={apart.id}
+                                    type="Apartment"
                                     information={apart.description}
                                 />)
                             })}
@@ -130,7 +133,7 @@ class DisplayPage extends React.Component {
                                 <DisplayCard 
                                     key={thouse.id}
                                     id={thouse.id}
-                                    type="Townhouse"
+                                    type="TownHouse"
                                     url={thouse.url}
                                     information={thouse.description}
                                 />)

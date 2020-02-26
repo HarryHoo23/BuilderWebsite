@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import * as fileURL from '../BuildWithUs/keys';
 
 const Content = styled.div`
     padding: 2rem 0;
@@ -55,9 +56,10 @@ const ContactUs = () => {
                 <Span><P><Icon className="material-icons" >work</Icon><strong>Phone</strong>: 0406686125</P></Span>              
                 <Span><P><Icon className="material-icons" >email</Icon><strong>Email</strong>: hoozh1123@gmail.com</P></Span>              
             </address>
-            
-            
-            
+            <span>
+                <P>To See Our Certification </P>
+                <a href={fileURL.FILE_URL}> click here</a>
+            </span>
         </div>
     )
 }

@@ -20,7 +20,6 @@ class Card extends React.Component {
     componentDidMount(){
         let elems = document.querySelectorAll('.materialboxed');
         M.Materialbox.init(elems, {inDuration:300});
-
     }
 
     render(){

@@ -70,7 +70,7 @@ class Header extends React.Component {
                             <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/displayPage" className="dropdown-trigger" data-target="dropdown1">Display</Link></li>
+                            <li><Link to="/displayPage">Display</Link></li>
                             <li><Link to="/build-with-us">Build With Us</Link></li>
                             </ul>
                         </HeaderTop>                
