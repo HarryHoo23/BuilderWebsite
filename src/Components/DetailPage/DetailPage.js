@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '../Container/Container';
 import styled from 'styled-components';
+import axios from '../../axiosDB';
 
 const Background = styled.div`
 
@@ -9,16 +10,21 @@ const Background = styled.div`
 class DetailPage extends React.Component{
     // state={commments=[], imgUrl:'' }
     state = {
-        houseType: '',
-        id: 0
+        projectDetail: {}
     }
 
     componentDidMount(){
         const data = {...this.props.location.data};
-        console.log(data[0])
-        this.setState({
-            houseType: data[0],
-            id: Number(data[1])
+        axios.get(`/Card/${data[0]}/${data[1]}.json`)
+            .then(res => {
+                const fetchData = [];
+                fetchData.push({
+                    ...res.data.detail  
+                })
+                this.setState({projectDetail: fetchData[0]})
+                console.log(fetchData[0]);
+            }).catch(err => {
+                console.log(err)
         })
     }   
 

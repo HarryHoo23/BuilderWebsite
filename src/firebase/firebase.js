@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { APIKEY, APPID, DATABASEURL } from '../Components/BuildWithUs/keys';
 import 'firebase/storage';
 
